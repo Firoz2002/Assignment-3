@@ -1,0 +1,32 @@
+th {
+    border-bottom: 1px solid black;
+}
+  
+th div{
+    display: flex;
+    justify-content: center;
+}
+  
+table, th, td {
+    border: 3px solid #ffffff;
+    border-collapse: collapse;
+}
+  
+th, td {
+    padding: 15px;
+}
+  
+.table-name {
+    display: flex;
+    justify-content: start;
+    font-size: xx-large;
+    text-decoration: underline;
+} 
+
+.pagination {
+    margin: 10px;
+}
+
+.pagination button {
+    margin: 5px;
+}
