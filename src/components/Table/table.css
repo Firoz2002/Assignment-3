@@ -15,6 +15,37 @@ table, th, td {
 th, td {
     padding: 15px;
 }
+
+td {
+    min-width: 80px;
+    height: 120px;
+}
+
+input {
+    height: 25px;
+    width: 25px;
+    background-color: #ffffff;
+}
+
+input ~ .checkmark {
+    background-color: #ccc;
+}
+
+input:checked ~ .checkmark {
+    background-color: #2196F3 !important;
+}
+
+input :after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
   
 .table-name {
     display: flex;

@@ -18,8 +18,10 @@ interface Artworks {
 const Table: FC = () => {
 
     const [page, setPage] = useState<number>(1);
-    const [artworks, setArtworks] = useState<Array<Artworks>>([]);
+    const [rowClick, setRowClick] = useState<boolean>(true);
+    const [artworks, setArtworks] = useState<Artworks[]>([]);
     const [disableButton, setDisableButton] = useState<boolean>(false);
+    const [selectedRows, setSelectedRows] = useState<Artworks[]>([]);
 
     async function fetchArtworks() {
         try {
@@ -67,12 +69,17 @@ const Table: FC = () => {
             <div className="table-wrapper">
                 <h2 className="table-name"> Artworks </h2>
 
-                <DataTable value={artworks}
+                <DataTable 
+                    value={artworks}
                     rows={12}
                     dataKey="id"
+                    selectionMode={rowClick ? undefined : 'multiple'}
+                    selection={selectedRows!}
+                    onSelectionChange={(e) => setSelectedRows(e.value)}
                     >
-
-                    <Column field="title" header="Title" style={{padding: '10px'}}></Column>
+                    
+                    <Column selectionMode="multiple"></Column>
+                    <Column field="title" sortable header="Title" style={{padding: '10px'}}></Column>
                     <Column field="place_of_origin" header="Origin" style={{padding: '10px'}}></Column>
                     <Column field="artist_display" header="Display" style={{padding: '10px'}}></Column>
                     <Column field="inscriptions" header="Inscriptions" style={{padding: '10px'}}></Column>
